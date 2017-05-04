@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { aggregateBy } from '@progress/kendo-data-query';
+import { sampleProducts } from './products';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title = 'app works!';
 
-  onButtonClick() {
-      this.title = 'Hello from Kendo UI!';
+  public aggregates: any[] = [{field: 'UnitPrice', aggregate: 'sum'}];
+
+  public products: any[] = sampleProducts;
+
+  public total: any = aggregateBy(this.products, this.aggregates);
+
+  public group: any[] = [{
+    field: "Discontinued",
+    aggregates: this.aggregates
+  }];
+
+  public onButtonClick() {
+    this.title = 'Hello from Kendo UI!';
   }
 }

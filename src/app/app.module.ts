@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 // Import the ButtonsModule...
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { GridModule, ExcelModule } from '@progress/kendo-angular-grid';
 
 /* Loading CLDR data
  * http://www.telerik.com/kendo-angular-ui/components/internationalization/
@@ -45,7 +46,8 @@ load(
     HttpModule,
 
     // ... and register it
-    ButtonsModule
+    ButtonsModule,
+    GridModule, ExcelModule
   ],
   bootstrap: [AppComponent]
 })
